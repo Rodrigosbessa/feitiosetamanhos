@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feitios e Tamanhos - Carpintaria Artesanal</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <a href="#" class="nav-logo">Feitios<span>&</span>Tamanhos</a>
+        <ul class="nav-links">
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#portfolio">Portfólio</a></li>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-slides" id="heroSlides">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Transformamos Madeira<br>em <em>Conforto</em> para a Sua Casa</h1>
+            <p class="hero-sub">Mobiliário à medida, cozinhas, exteriores e restauro - feitos com paixão e rigor.</p>
+            <a href="#contacto" class="btn-primary">Contactar</a>
+            <a href="#portfolio" class="btn-secondary">Ver Trabalhos</a>
+        </div>
+        <div class="hero-dots" id="heroDots"></div>
+    </section>
+
+    <section id="servicos">
+        <div class="services-header fade-up">
+            <p class="section-label">O que fazemos</p>
+            <h2 class="section-title">Os Nossos Serviços</h2>
+            <p class="section-sub">Soluções completas em madeira, do projeto à instalação, com materiais de alta
+                qualidade.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-up">
+                <span class="service-icon">🪑</span>
+                <p class="service-name">Mobiliário à Medida</p>
+                <p class="service-desc">Roupeiros embutidos, mesas de jantar, estantes e toda a mobília que imaginar,
+                    feita especificamente para o seu espaço.</p>
+            </div>
+            <div class="service-card fade-up">
+                <span class="service-icon">🍳</span>
+                <p class="service-name">Cozinhas e Casas de Banho</p>
+                <p class="service-desc">Cozinhas completas e móveis de casa de banho com design moderno ou clássico,
+                    adaptados ao seu estilo de vida.</p>
+            </div>
+            <div class="service-card fade-up">
+                <span class="service-icon">🏡</span>
+                <p class="service-name">Estruturas de Exterior</p>
+                <p class="service-desc">Decks de madeira e alpendres e carports que transformam o exterior da sua casa.
+                </p>
+            </div>
+            <div class="service-card fade-up">
+                <span class="service-icon">🔧</span>
+                <p class="service-name">Restauro de Móveis</p>
+                <p class="service-desc">Damos nova vida a móveis antigos com valor sentimental — lixagem, tratamento,
+                    lacagem e reparação estrutural.</p>
+            </div>
+            <div class="service-card fade-up">
+                <span class="service-icon">🚪</span>
+                <p class="service-name">Portas e Janelas</p>
+                <p class="service-desc">Fabrico e instalação de portas interiores e exteriores, janelas e caixilharia em
+                    madeira maciça.</p>
+            </div>
+            <div class="service-card fade-up">
+                <span class="service-icon">🪵</span>
+                <p class="service-name">Soalhos e Revestimentos</p>
+                <p class="service-desc">Soalhos flutuantes, parquet e revestimentos em madeira que aquecam visualmente
+                    qualquer divisão.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="portfolio-header fade-up">
+            <p class="section-label">Os nossos projetos</p>
+            <h2 class="section-title">Portfólio</h2>
+            <p class="section-sub" style="color:var(--muted)">Cada projeto é único. Navegue pelas categorias e
+                inspire-se.</p>
+        </div>
+        <div class="portfolio-tabs" id="portfolioTabs">
+            <button class="tab-btn active" data-filter="all">Todos</button>
+            <button class="tab-btn" data-filter="portas">Portas</button>
+            <button class="tab-btn" data-filter="escadas">Escadas</button>
+            <button class="tab-btn" data-filter="cozinhas">Cozinhas</button>
+            <button class="tab-btn" data-filter="casabanho">Casa de Banho</button>
+            <button class="tab-btn" data-filter="armarios">Armários</button>
+            <button class="tab-btn" data-filter="outros">Outros</button>
+        </div>
+        <div class="portfolio-grid" id="portfolioGrid">
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lbClose">✕</button>
+        <button class="lb-nav lb-prev" id="lbPrev">&#8249;</button>
+        <img src="" id="lbImg" alt="" />
+        <button class="lb-nav lb-next" id="lbNext">&#8250;</button>
+        <p class="lb-caption" id="lbCaption"></p>
+    </div>
+
+    <section id="videos">
+        <div class="videos-header fade-up">
+            <p class="section-label">Em ação</p>
+            <h2 class="section-title" style="color:var(--white)">A Oficina por Dentro</h2>
+        </div>
+        <div class="videos-grid" id="videosGrid">
+        </div>
+    </section>
+
+    <section id="sobre">
+        <div class="sobre-img">
+            <img src="fotos/foto (22).jpg" alt="Carpinteiro a trabalhar" id="sobreImg" />
+            <div class="sobre-img-badge">
+                <strong>+10</strong>
+                <span>Anos</span>
+            </div>
+        </div>
+        <div class="sobre-content">
+            <p class="section-label">A nossa história</p>
+            <h2 class="section-title">Paixão pela Madeira, Dedicação ao Detalhe</h2>
+            <p>A Feitios e Tamanhos nasceu da genuína paixão pela carpintaria artesanal, uma arte que se mantém viva na
+                nossa família de geração em geração. Construímos muito mais do que móveis — preservamos uma herança de
+                conhecimento e dedicação, conquistando a confiança de centenas de famílias que nos abrem as portas das
+                suas casas.</p>
+            <p>Cada projeto começa com uma conversa. Ouvimos as suas ideias, sugerimos as melhores soluções, desenhamos
+                e executamos com o rigor que aprendemos com os que vieram antes de nós. O resultado é sempre único — uma
+                peça à medida, feita com alma e tradição familiar.</p>
+            <div class="sobre-values">
+                <div class="value-item">
+                    <strong>Materiais de Qualidade</strong>
+                    <span>Madeiras selecionadas de fornecedores certificados</span>
+                </div>
+                <div class="value-item">
+                    <strong>Projeto à Medida</strong>
+                    <span>Sem soluções de prateleira — tudo feito para si</span>
+                </div>
+                <div class="value-item">
+                    <strong>Acabamentos Perfeitos</strong>
+                    <span>Atenção obsessiva ao detalhe em cada peça</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div style="max-width:1100px; margin: 0 auto 52px; text-align: center;">
+            <p class="section-label fade-up">Fale connosco</p>
+            <h2 class="section-title fade-up">Peça o Seu Orçamento</h2>
+        </div>
+
+        <div class="contact-wrapper">
+            <div class="contact-grid-info fade-up">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-item-text">
+                        <strong>Morada</strong>
+                        <span>R. São Damião, nº 491<br>4580-763 Besteiros</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-item-text">
+                        <strong>Telefone</strong>
+                        <span><a href="tel:+351938429389">+351 938 429 389</a></span>
+                        <span
+                            style="font-family: inherit; font-size: 0.9rem; color: var(--muted); display: block; margin: 2px 0;">ou</span>
+                        <span><a href="tel:+351938429393">+351 938 429 393</a></span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-item-text">
+                        <strong>Email</strong>
+                        <span><a href="mailto:feitiosetamanhos@hotmail.com">feitiosetamanhos@hotmail.com</a></span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <div class="contact-item-text">
+                        <strong>Horário</strong>
+                        <span>Segunda a Sexta: 09h–19h<br>Sábado: 09h–12h</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-actions fade-up">
+                <a href="https://wa.me/351938429393?text=Olá!%20Gostaria%20de%20pedir%20um%20orçamento."
+                    class="whatsapp-btn" target="_blank">
+                    <span style="font-size:1.3rem">💬</span>
+                    Contactar pelo WhatsApp
+                </a>
+
+                <div class="map-embed">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000.7573664592846!2d-8.349511124857397!3d41.22705770592609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd248dd189620065%3A0xf127c3dbe8192810!2sR.%20S%C3%A3o%20Dami%C3%A3o%20491%2C%204580-763%20Besteiros!5e0!3m2!1spt-PT!2spt!4v1780588882839!5m2!1spt-PT!2spt"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">Feitios<span>&</span>Tamanhos</div>
+        <div class="footer-links">
+            <a href="#hero">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+        <p class="footer-copy">© 2026 Feitios e Tamanhos · Carpintaria Artesanal · Besteiros, Paredes</p>
+    </footer>
+
+    <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+    <script src="script.js"></script>
+</body>
+
+</html>
