@@ -6,7 +6,7 @@ const photoCategories = {
     armarios: [11, 14, 21, 23, 24, 27, 28, 29, 32, 42, 43, 44, 45, 51, 54, 63, 66],
     outros: [6, 7, 9, 15, 16, 17, 20, 33, 39, 41, 49, 55, 56, 57, 65, 67],
 };
-
+ 
 const catLabels = {
     portas: 'Portas',
     escadas: 'Escadas',
@@ -15,34 +15,60 @@ const catLabels = {
     armarios: 'Armários',
     outros: 'Outros Projetos',
 };
-
+ 
 const heroNums = [6, 36, 65, 10, 14, 22];
-
-const heroSlides = document.getElementById('heroSlides');
-const heroDots = document.getElementById('heroDots');
-let heroIdx = 0;
-
-heroNums.forEach((n, i) => {
-    const s = document.createElement('div');
-    s.className = 'hero-slide' + (i === 0 ? ' active' : '');
-    s.style.backgroundImage = `url('fotos/foto (${n}).jpg')`;
-    heroSlides.appendChild(s);
-
-    const d = document.createElement('div');
-    d.className = 'hero-dot' + (i === 0 ? ' active' : '');
-    d.onclick = () => goHero(i);
-    heroDots.appendChild(d);
-});
-
-function goHero(i) {
-    heroSlides.children[heroIdx].classList.remove('active');
-    heroDots.children[heroIdx].classList.remove('active');
-    heroIdx = i;
-    heroSlides.children[heroIdx].classList.add('active');
-    heroDots.children[heroIdx].classList.add('active');
+ 
+function initHero() {
+    const heroSlides = document.getElementById('heroSlides');
+    const heroDots = document.getElementById('heroDots');
+ 
+    if (!heroSlides || !heroDots) {
+        console.warn('Hero: não encontrei #heroSlides ou #heroDots no HTML.');
+        return;
+    }
+ 
+    // limpa o que já lá estiver, para nunca ficar com slides antigos duplicados
+    heroSlides.innerHTML = '';
+    heroDots.innerHTML = '';
+ 
+    let heroIdx = 0;
+ 
+    heroNums.forEach((n, i) => {
+        const path = `fotos/foto (${n}).jpg`;
+ 
+        const s = document.createElement('div');
+        s.className = 'hero-slide' + (i === 0 ? ' active' : '');
+        s.style.backgroundImage = `url('${path}')`;
+        heroSlides.appendChild(s);
+ 
+        // avisa na consola se alguma foto não carregar (nome/maiúsculas a mais ou a menos)
+        const test = new Image();
+        test.onerror = () => console.warn('Hero: imagem não encontrada ->', path);
+        test.src = path;
+ 
+        const d = document.createElement('div');
+        d.className = 'hero-dot' + (i === 0 ? ' active' : '');
+        d.onclick = () => goHero(i);
+        heroDots.appendChild(d);
+    });
+ 
+    function goHero(i) {
+        heroSlides.children[heroIdx].classList.remove('active');
+        heroDots.children[heroIdx].classList.remove('active');
+        heroIdx = i;
+        heroSlides.children[heroIdx].classList.add('active');
+        heroDots.children[heroIdx].classList.add('active');
+    }
+ 
+    setInterval(() => goHero((heroIdx + 1) % heroNums.length), 5000);
 }
-setInterval(() => goHero((heroIdx + 1) % heroNums.length), 5000);
-
+ 
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHero);
+} else {
+    initHero();
+}
+ 
 const allItems = [];
 Object.entries(photoCategories).forEach(([cat, nums]) => {
     nums.forEach(n => allItems.push({ n, cat, label: catLabels[cat] }));
@@ -58,7 +84,6 @@ function buildGrid(filter) {
         const el = document.createElement('div');
         el.className = 'portfolio-item';
         el.dataset.cat = item.cat;
-        // CORREÇÃO: Adicionado "fotos/" na tag <img> da grelha de portfólio
         el.innerHTML = `
       <img src="fotos/foto (${item.n}).jpg" alt="${item.label}" loading="lazy"/>
       <div class="portfolio-overlay">

@@ -10,7 +10,7 @@
     --muted: #8A7060;
     --white: #FDFAF5;
 }
-
+ 
 *,
 *::before,
 *::after {
@@ -18,31 +18,42 @@
     margin: 0;
     padding: 0;
 }
-
+ 
 html {
     scroll-behavior: smooth;
 }
-
+ 
 body {
     font-family: 'DM Sans', sans-serif;
     background: var(--cream);
     color: var(--text);
     overflow-x: hidden;
 }
-
+ 
+img {
+    display: block;
+    max-width: 100%;
+}
+ 
 ::-webkit-scrollbar {
     width: 6px;
 }
-
+ 
 ::-webkit-scrollbar-track {
     background: var(--warm);
 }
-
+ 
 ::-webkit-scrollbar-thumb {
     background: var(--gold);
     border-radius: 3px;
 }
-
+ 
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--gold2);
+    outline-offset: 3px;
+}
+ 
 nav {
     position: fixed;
     top: 0;
@@ -55,13 +66,13 @@ nav {
     background: transparent;
     transition: background .4s, padding .4s, backdrop-filter .4s;
 }
-
+ 
 nav.scrolled {
     background: rgba(26, 18, 8, .88);
     backdrop-filter: blur(12px);
     padding: 14px 60px;
 }
-
+ 
 .nav-logo {
     font-family: 'Playfair Display', serif;
     font-size: 1.4rem;
@@ -70,17 +81,68 @@ nav.scrolled {
     letter-spacing: .04em;
     text-decoration: none;
 }
-
+ 
 .nav-logo span {
     color: var(--gold2);
 }
-
+ 
+/* ---- logo mark: image badge + wordmark, sits beside the existing text logo ---- */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+ 
+.nav-logo-mark {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid var(--gold2);
+    box-shadow: 0 0 0 4px rgba(184, 135, 58, .14), 0 6px 16px rgba(0, 0, 0, .45);
+    transition: width .4s, height .4s, transform .7s cubic-bezier(.2, .8, .2, 1), box-shadow .4s;
+}
+ 
+.nav-logo-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+ 
+.nav-logo:hover .nav-logo-mark {
+    transform: rotate(48deg);
+    box-shadow: 0 0 0 4px rgba(212, 168, 87, .24), 0 6px 20px rgba(0, 0, 0, .5);
+}
+ 
+nav.scrolled .nav-logo-mark {
+    width: 36px;
+    height: 36px;
+}
+ 
+.nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+ 
+.nav-logo-text small {
+    font-family: 'DM Sans', sans-serif;
+    font-size: .56rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .5);
+    margin-top: 4px;
+}
+ 
 .nav-links {
     display: flex;
     gap: 36px;
     list-style: none;
 }
-
+ 
 .nav-links a {
     color: rgba(255, 255, 255, .82);
     text-decoration: none;
@@ -89,11 +151,11 @@ nav.scrolled {
     text-transform: uppercase;
     transition: color .2s;
 }
-
+ 
 .nav-links a:hover {
     color: var(--gold2);
 }
-
+ 
 #hero {
     position: relative;
     height: 100vh;
@@ -103,12 +165,12 @@ nav.scrolled {
     justify-content: center;
     overflow: hidden;
 }
-
+ 
 .hero-slides {
     position: absolute;
     inset: 0;
 }
-
+ 
 .hero-slide {
     position: absolute;
     inset: 0;
@@ -117,17 +179,41 @@ nav.scrolled {
     opacity: 0;
     transition: opacity 1.2s ease;
 }
-
+ 
 .hero-slide.active {
     opacity: 1;
 }
-
+ 
+/* ---- placeholder slide backgrounds (swap for real workshop/portfolio photos) ---- */
+.hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(115deg, rgba(255, 255, 255, .025) 0px, rgba(255, 255, 255, .025) 1px, transparent 1px, transparent 6px);
+    pointer-events: none;
+}
+ 
+.hero-slide.slide-1 {
+    background: radial-gradient(circle at 20% 20%, rgba(212, 168, 87, .18), transparent 55%),
+        linear-gradient(125deg, #1A1208 0%, #3D2B1A 55%, #1A1208 100%);
+}
+ 
+.hero-slide.slide-2 {
+    background: radial-gradient(circle at 80% 30%, rgba(184, 135, 58, .16), transparent 50%),
+        linear-gradient(125deg, #20150A 0%, #4A3420 60%, #1A1208 100%);
+}
+ 
+.hero-slide.slide-3 {
+    background: radial-gradient(circle at 50% 85%, rgba(212, 168, 87, .14), transparent 55%),
+        linear-gradient(125deg, #1A1208 0%, #2C1F10 50%, #3D2B1A 100%);
+}
+ 
 .hero-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, rgba(26, 18, 8, .72) 0%, rgba(61, 43, 26, .45) 60%, rgba(26, 18, 8, .3) 100%);
 }
-
+ 
 .hero-content {
     position: relative;
     z-index: 2;
@@ -135,7 +221,7 @@ nav.scrolled {
     padding: 0 24px;
     max-width: 820px;
 }
-
+ 
 .hero-eyebrow {
     display: inline-block;
     font-family: 'DM Sans', sans-serif;
@@ -147,7 +233,7 @@ nav.scrolled {
     border-bottom: 1px solid var(--gold);
     padding-bottom: 8px;
 }
-
+ 
 .hero-title {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2.8rem, 6vw, 5.2rem);
@@ -156,12 +242,12 @@ nav.scrolled {
     color: var(--white);
     margin-bottom: 22px;
 }
-
+ 
 .hero-title em {
     font-style: italic;
     color: var(--gold2);
 }
-
+ 
 .hero-sub {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.1rem, 2vw, 1.5rem);
@@ -170,7 +256,7 @@ nav.scrolled {
     margin-bottom: 44px;
     line-height: 1.6;
 }
-
+ 
 .btn-primary {
     display: inline-block;
     background: var(--gold);
@@ -185,13 +271,13 @@ nav.scrolled {
     transition: all .25s;
     border-radius: 2px;
 }
-
+ 
 .btn-primary:hover {
     background: transparent;
     border-color: var(--gold2);
     color: var(--gold2);
 }
-
+ 
 .btn-secondary {
     display: inline-block;
     background: transparent;
@@ -207,12 +293,78 @@ nav.scrolled {
     transition: all .25s;
     border-radius: 2px;
 }
-
+ 
 .btn-secondary:hover {
     border-color: var(--gold2);
     color: var(--gold2);
 }
-
+ 
+/* ---- hero medallion: a wax-seal-style stamp of the logo, echoing bespoke/handmade positioning ---- */
+.hero-seal {
+    position: absolute;
+    z-index: 3;
+    right: 56px;
+    bottom: 44px;
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark);
+    box-shadow: 0 0 0 1px rgba(212, 168, 87, .45),
+        0 0 0 9px rgba(245, 240, 232, .04),
+        0 14px 34px rgba(0, 0, 0, .5);
+    opacity: 0;
+    transform: translateY(18px) scale(.9);
+    animation: sealIn 1s .9s cubic-bezier(.2, .8, .2, 1) forwards;
+}
+ 
+.hero-seal::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 50%;
+    border: 1px solid rgba(212, 168, 87, .55);
+}
+ 
+.hero-seal img {
+    width: 86%;
+    height: 86%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+ 
+@keyframes sealIn {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+ 
+@media (max-width: 600px) {
+    .hero-seal {
+        width: 84px;
+        height: 84px;
+        right: 20px;
+        bottom: auto;
+        top: 100px;
+    }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+ 
+    .hero-seal {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+ 
+    .nav-logo:hover .nav-logo-mark {
+        transform: none;
+    }
+}
+ 
 .hero-dots {
     position: absolute;
     bottom: 32px;
@@ -222,7 +374,7 @@ nav.scrolled {
     gap: 8px;
     z-index: 2;
 }
-
+ 
 .hero-dot {
     width: 6px;
     height: 6px;
@@ -231,17 +383,17 @@ nav.scrolled {
     cursor: pointer;
     transition: all .3s;
 }
-
+ 
 .hero-dot.active {
     background: var(--gold2);
     width: 22px;
     border-radius: 3px;
 }
-
+ 
 section {
     padding: 100px 60px;
 }
-
+ 
 .section-label {
     font-size: .72rem;
     letter-spacing: .35em;
@@ -252,7 +404,7 @@ section {
     align-items: center;
     gap: 12px;
 }
-
+ 
 .section-label::after {
     content: '';
     flex: 1;
@@ -260,7 +412,7 @@ section {
     height: 1px;
     background: var(--gold);
 }
-
+ 
 .section-title {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2rem, 3.5vw, 3rem);
@@ -269,7 +421,7 @@ section {
     color: var(--bark);
     margin-bottom: 16px;
 }
-
+ 
 .section-sub {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem;
@@ -277,6 +429,28 @@ section {
     font-weight: 300;
     line-height: 1.6;
     max-width: 540px;
+}
+ 
+@media (max-width: 720px) {
+    nav {
+        padding: 16px 24px;
+    }
+ 
+    nav.scrolled {
+        padding: 12px 24px;
+    }
+ 
+    .nav-links {
+        gap: 20px;
+    }
+ 
+    .nav-links a {
+        font-size: .72rem;
+    }
+ 
+    section {
+        padding: 72px 24px;
+    }
 }
 
 #servicos {

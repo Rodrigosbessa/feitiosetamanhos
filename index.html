@@ -5,15 +5,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feitios e Tamanhos - Carpintaria Artesanal</title>
+    <link rel="icon" type="image/png" href="https://feitiosetamanhos.faturix.org/fotos/logo.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
+    
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Feitios e Tamanhos",
+        "alternateName": "Feitios e Tamanhos Carpintarias",
+        "url": "https://feitiosetamanhos.faturix.org/"
+        }
+    </script>
+    <meta property="og:site_name" content="Feitios e Tamanhos">
 </head>
 
 <body>
     <nav id="navbar">
-        <a href="#" class="nav-logo">Feitios<span>&</span>Tamanhos</a>
+        <a href="#" class="nav-logo">
+            <span class="nav-logo-mark">
+                <img src="fotos/logo.png" alt="Logótipo Feitios e Tamanhos Carpintarias">
+            </span>
+            <span class="nav-logo-text">
+                Feitios<span>&</span>Tamanhos
+                <small>Carpintarias Lda</small>
+            </span>
+        </a>
         <ul class="nav-links">
             <li><a href="#servicos">Serviços</a></li>
             <li><a href="#portfolio">Portfólio</a></li>
@@ -24,13 +44,20 @@
 
     <section id="hero">
         <div class="hero-slides" id="heroSlides">
+            <div class="hero-slide slide-1 active"></div>
+            <div class="hero-slide slide-2"></div>
+            <div class="hero-slide slide-3"></div>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
+            <span class="hero-eyebrow">Carpintaria à medida</span>
             <h1 class="hero-title">Transformamos Madeira<br>em <em>Conforto</em> para a Sua Casa</h1>
             <p class="hero-sub">Mobiliário à medida, cozinhas, exteriores e restauro - feitos com paixão e rigor.</p>
             <a href="#contacto" class="btn-primary">Contactar</a>
             <a href="#portfolio" class="btn-secondary">Ver Trabalhos</a>
+        </div>
+        <div class="hero-seal">
+            <img src="fotos/logo.png" alt="Logótipo Feitios e Tamanhos Carpintarias">
         </div>
         <div class="hero-dots" id="heroDots"></div>
     </section>
