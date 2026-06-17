@@ -27,7 +27,6 @@ function initHero() {
         return;
     }
  
-    // limpa o que já lá estiver, para nunca ficar com slides antigos duplicados
     heroSlides.innerHTML = '';
     heroDots.innerHTML = '';
  
@@ -41,7 +40,6 @@ function initHero() {
         s.style.backgroundImage = `url('${path}')`;
         heroSlides.appendChild(s);
  
-        // avisa na consola se alguma foto não carregar (nome/maiúsculas a mais ou a menos)
         const test = new Image();
         test.onerror = () => console.warn('Hero: imagem não encontrada ->', path);
         test.src = path;

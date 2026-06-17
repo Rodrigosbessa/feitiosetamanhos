@@ -86,7 +86,6 @@ nav.scrolled {
     color: var(--gold2);
 }
  
-/* ---- logo mark: image badge + wordmark, sits beside the existing text logo ---- */
 .nav-logo {
     display: flex;
     align-items: center;
@@ -184,7 +183,6 @@ nav.scrolled .nav-logo-mark {
     opacity: 1;
 }
  
-/* ---- placeholder slide backgrounds (swap for real workshop/portfolio photos) ---- */
 .hero-slide::after {
     content: '';
     position: absolute;
@@ -299,7 +297,6 @@ nav.scrolled .nav-logo-mark {
     color: var(--gold2);
 }
  
-/* ---- hero medallion: a wax-seal-style stamp of the logo, echoing bespoke/handmade positioning ---- */
 .hero-seal {
     position: absolute;
     z-index: 3;
