@@ -913,7 +913,7 @@ section {
 
 .contact-item-text span,
 .contact-item-text a {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 1.15rem;
     color: var(--bark);
     line-height: 1.4;
